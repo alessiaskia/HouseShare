@@ -12,25 +12,34 @@
 </div>
 <span><a href="/Account/Login">Account</a> / @ViewBag.Title</span>
 <!-- banner -->
-<
-<form action="/Account/Login" target="_blank" method="post">
-    @Html.AntiForgeryToken()
-    <div class="form-group">
-        @*<label class="sr-only" for="exampleInputEmail2">Votre nom d'utilisateur</label>*@
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Nom d'utilisateur" name="Login" required />
-    </div>
-    <div class="form-group">
-        @*<label class="sr-only" for="exampleInputPassword2">Password</label>*@
-        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" name="Password" required />
-    </div>
-    <button type="submit" class="btn btn-success">Confirmer</button>
-    @if (ViewBag.ErrorNotExistent != null)
-    {
-        @:<div class="alert alert-success">@ViewBag.ErrorNotExistent</div>
-    }
+<div class="container">
+    <div class="spacer">
+        <div class="row register">
+            <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
+                <form action="/Account/Login" target="_blank" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @*<label class="sr-only" for="exampleInputEmail2">Votre nom d'utilisateur</label>*@
+                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Nom d'utilisateur" name="Login" required />
+                    </div>
+                    <div class="form-group">
+                        @*<label class="sr-only" for="exampleInputPassword2">Password</label>*@
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" name="Password" required />
+                    </div>
+                    <button type="submit" class="btn btn-success">Confirmer</button>
+                    @if (ViewBag.ErrorNotExistent != null)
+                    {
+                        @:<div class="alert alert-success">@ViewBag.ErrorNotExistent</div>
+                    }
 
-    @if (ViewBag.ErrorNotValid != null)
-    {
-        @:<div class="alert alert-danger">@ViewBag.ErrorNotValid</div>
-    }
-</form>
+                    @if (ViewBag.ErrorNotValid != null)
+                    {
+                        @:<div class="alert alert-danger">@ViewBag.ErrorNotValid</div>
+                    }
+                </form>
+                <div class="spacer">
+                    <p>Pas encore membre de HouseShare ? <a href="/Home/Inscription">Inscrivez-vous</p></a>
+                </div>
+            </div>
+    </div>
+</div>

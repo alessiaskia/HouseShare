@@ -4,12 +4,17 @@
     <title>Realestate Bootstrap Theme </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    @*base*@
     @Styles.Render("~/Content/css")
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
 
+    @*carousel*@
+    @Styles.Render("~/Content/owl-carousel")
+    @Scripts.Render("~/bundles/owl-carousel")
 
+    @*slider*@
+    @Styles.Render("~/Content/slitslider")
+    @Scripts.Render("~/bundles/slitslider")
 </head>
 
 <body>
@@ -58,7 +63,7 @@
             <a href="index.php"><img src="/images/logo.png" alt="Realestate"></a>
 
             <ul class="pull-right">
-                <li><a href="buysalerent.php">Echanger</a></li>
+                <li><a href="/Account/Login">Echanger</a></li>
                 <li><a href="/Home/Biens">Visiter</a></li>
                 <li><a href="/Home/Inscription">Inscription</a></li>
                 <li><a href="/Account/Login">Se Connecter</a></li>
@@ -77,17 +82,17 @@
 
 
           
+            <div class="col-lg-3 col-sm-3">
+                <a href="#"><h4>Information</h4></a>
+            </div>
+
                 <div class="col-lg-3 col-sm-3">
-                    <h4>Information</h4>
+                    <a href="#"><h4>Newsletter</h4></a>
+
                 </div>
 
                 <div class="col-lg-3 col-sm-3">
-                    <h4>Newsletter</h4>
-
-                </div>
-
-                <div class="col-lg-3 col-sm-3">
-                    <h4>Suivez-nous</h4>
+                    <a href="#"><h4>Suivez-nous</h4></a>
 
                 </div>
 
