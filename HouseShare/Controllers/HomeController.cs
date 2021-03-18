@@ -40,9 +40,11 @@ namespace HouseShare.Controllers
         [HttpGet]
         public ActionResult Inscription()
         {
-            return View();
+            InscriptionViewModel ivm = new InscriptionViewModel();
+            return View(ivm);
         }
 
+        //envoyer le formulaire
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Inscription(MembreModel form)
@@ -53,7 +55,7 @@ namespace HouseShare.Controllers
                 if (ctx.CreateMember(form))
                 {
                     ViewBag.SuccessMessage = "Votre demande d'inscription a bien été envoyée";
-                    return View();
+                    return RedirectToAction("Index", "Home", new { area = "Membre" });
                 }
                 else
                 {
@@ -64,7 +66,8 @@ namespace HouseShare.Controllers
             else
             {
                 ViewBag.ErrorMessage = "Formulaire error : vérifiez les données insérées et réessayez";
-                return View();
+                InscriptionViewModel ivm = new InscriptionViewModel();
+                return View(ivm);
             }
         }
     }

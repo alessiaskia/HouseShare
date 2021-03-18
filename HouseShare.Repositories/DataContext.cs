@@ -12,9 +12,11 @@ namespace HouseShare.Repositories
     public class DataContext
     {
         IConcreteRepository<MembreEntity> _membreRepo;
+        IConcreteRepository<PaysEntity> _paysRepo;
 
         public DataContext(string connectionString)
         {
+            _paysRepo = new PaysRepository(connectionString);
             _membreRepo = new MembreRepository(connectionString);
         }
 
@@ -32,6 +34,41 @@ namespace HouseShare.Repositories
                 Password = mm.Password,
             };
             return _membreRepo.Insert(membreEntity);
+        }
+        #endregion
+
+        #region Login
+        public MembreModel MemberAuth(LoginModel lm)
+        {
+            MembreEntity me = ((MembreRepository)_membreRepo).GetFromLogin(lm.Login);
+            if (me == null)
+            {
+                return null;
+            }
+            else
+            {
+                return new MembreModel()
+                {
+                    IdMembre = me.IdMembre,
+                    Prenom = me.Prenom,
+                    Nom = me.Nom,
+                    Email = me.Email,
+                    Telephone = me.Telephone,
+                    Login = me.Login
+                };
+            }
+        }
+        #endregion
+        #region Pays
+
+        public List<PaysModel> GetAllCountries()
+        {
+            return _paysRepo.Get().Select(p => new PaysModel()
+            {
+                IdPays = p.IdPays,
+                Libelle = p.Libelle
+            }
+            ).ToList();
         }
         #endregion
     }

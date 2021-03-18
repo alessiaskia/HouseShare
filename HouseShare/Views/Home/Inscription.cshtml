@@ -1,4 +1,4 @@
-﻿
+﻿@model HouseShare.Models.InscriptionViewModel
 @{
     ViewBag.Title = "Inscription";
 }
@@ -25,20 +25,28 @@
                 {
                     @:<div class="alert alert-danger">@ViewBag.ErrorMessage</div>
                 }
-            <form id="contact-form" method="post">
-                @Html.AntiForgeryToken()
-                <input type="text" class="form-control" placeholder="Prénom" name="Prenom" required>
-                <input type="text" class="form-control" placeholder="Nom" name="Nom" required>
-                <input type="text" class="form-control" placeholder="Pays" name="Pays" required>
-                <input type="text" class="form-control" placeholder="Téléphone" name="Telephone" required>
-                <input type="email" class="form-control" placeholder="E-mail" name="Email" required>
-                <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="Login" required>
-                <input type="password" class="form-control" placeholder="Mot de passe" name="Password" required>
-                <input type="password" class="form-control" placeholder="Confirmer mot de passe" name="ConfirmPassword" required>
+                <form id="contact-form" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="text" class="form-control" placeholder="Prénom" name="Prenom" required>
+                    <input type="text" class="form-control" placeholder="Nom" name="Nom" required>
+                    @*<input type="text" class="form-control" placeholder="Pays" name="Pays" required>*@
+                    <select name="Pays" class="form-select form-control form-select-lg mb-3" aria-label="Disabled select example">
+">
+                        <option selected disabled>Pays </option>
+                        @foreach (HouseShare.Models.PaysModel item in Model.ListPays)
+                        {
+                            <option class="form-control" value="@item.IdPays">@item.Libelle</option>
+                        }
+                    </select>
+                    <input type="text" class="form-control" placeholder="Téléphone" name="Telephone" required>
+                    <input type="email" class="form-control" placeholder="E-mail" name="Email" required>
+                    <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="Login" required>
+                    <input type="password" class="form-control" placeholder="Mot de passe" name="Password" required>
+                    <input type="password" class="form-control" placeholder="Confirmer mot de passe" name="ConfirmPassword" required>
 
-                <button type="submit" class="btn btn-success" name="Submit">Confirmer</button>
+                    <button type="submit" class="btn btn-success" name="Submit">Confirmer</button>
 
-            </form>
+                </form>
             </div>
         </div>
     </div>

@@ -10,14 +10,16 @@ namespace HouseShare.Repositories
 {
     public class MembreRepository : BaseRepository<MembreEntity>, IConcreteRepository<MembreEntity>
     {
-        public MembreRepository(string ConnectionString) : base(ConnectionString)
+        public MembreRepository(string connectionString) : base(connectionString)
         {
 
         }
 
         public List<MembreEntity> Get()
         {
-            throw new NotImplementedException();
+            string requete = "Select * from Membre";
+
+            return base.Get(requete);
         }
 
         public MembreEntity GetOne(int PK)
@@ -56,6 +58,14 @@ namespace HouseShare.Repositories
         public bool Delete(MembreEntity toDelete)
         {
             throw new NotImplementedException();
+        }
+
+        //login
+        public MembreEntity GetFromLogin(string login)
+        {
+            Dictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("login", login);
+            return base.Get("Select * from [Membre] where Login=@login", p).FirstOrDefault();
         }
     }
 }
