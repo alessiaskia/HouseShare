@@ -1,42 +1,150 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Realestate Bootstrap Theme </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+
+
+    <!-- Header Starts -->
+    <div class="navbar-wrapper">
+
+        <div class="navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+
+                <!-- Nav Starts -->
+                <div class="navbar-collapse  collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="/Home/Index">Home</a></li>
+                        <li><a href="#">A propos de nous</a></li>
+                        <li><a href="#">Les proprietaires</a></li>
+                        <li><a href="/Home/Biens">Les bien en échange</a></li>
+                        <li><a href="/Home/Contact">Contactez-nous</a></li>
+                    </ul>
+                </div>
+                <!-- #Nav Ends -->
+
             </div>
         </div>
+
+    </div>
+    <!-- #Header Starts -->
+
+    <div class="container">
+
+        <!-- Header Starts -->
+        <div class="header">
+            <a href="index.php"><img src="/images/logo.png" alt="Realestate"></a>
+
+            <ul class="pull-right">
+                <li><a href="buysalerent.php">Echanger</a></li>
+                <li><a href="/Home/Biens">Visiter</a></li>
+                <li><a href="/Home/Inscription">Inscription</a></li>
+                <li><a href="/Account/Login">Se Connecter</a></li>
+            </ul>
+        </div>
+        <!-- #Header Starts -->
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    </div>
+    <hr />
+    <div class="footer">
+
+        <div class="container">
+
+
+
+          
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Information</h4>
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Newsletter</h4>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <h4>Suivez-nous</h4>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-3">
+                    <a href="/Home/Contact"><h4>Contactez-nous</h4></a>
+
+                </div>
+         
+
+
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+
+    <!-- Modal -->
+    <div id="loginpop" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm-6 login">
+                        <h4>Login</h4>
+                        <form class="" role="form">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-success">Sign in</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>New User Sign Up</h4>
+                        <p>Join today and get updated with all the properties deal happening around.</p>
+                        <button type="submit" class="btn btn-info" onclick="window.location.href='register.php'">Join Now</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+
+
+
 </body>
 </html>
+
+
+
+

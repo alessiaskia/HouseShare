@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseShare.Mappers", "HouseShare.Mappers\HouseShare.Mappers.csproj", "{F10BB3A0-F864-4AA5-AD12-3342FF5A81F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseShare.Repositories", "HouseShare.Repositories\HouseShare.Repositories.csproj", "{49B88690-397D-479D-8FFD-5473868567C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8FA93981-6C58-4674-BCB9-056ECD2FB327} = {8FA93981-6C58-4674-BCB9-056ECD2FB327}
+		{E2398087-6DC1-42AD-836E-5AF26E20B3C8} = {E2398087-6DC1-42AD-836E-5AF26E20B3C8}
+		{B1E53FA3-54C1-49CB-9070-E2C2A52C1F2F} = {B1E53FA3-54C1-49CB-9070-E2C2A52C1F2F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseShare.Models", "HouseShare.Models\HouseShare.Models.csproj", "{B1E53FA3-54C1-49CB-9070-E2C2A52C1F2F}"
 EndProject

@@ -10,20 +10,33 @@ namespace HouseShare.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Home = "active";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Biens()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Biens = "active";
             return View();
         }
 
+        public ActionResult Fiche()
+        {
+            return View();
+        }
+
+        //Afficher le formulaire
+        [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Home = "active";
+            return View();
+        }
 
+        //Afficher le formulaire
+        [HttpGet]
+        public ActionResult Inscription()
+        {
             return View();
         }
     }
