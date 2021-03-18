@@ -19,7 +19,7 @@ namespace HouseShare
             //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
             //            "~/Scripts/modernizr-*"));
 
-            //Style Bundle
+            //Script Bundle
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/assets/bootstrap/js/bootstrap.js",
                        "~/assets/script.js",
@@ -29,7 +29,7 @@ namespace HouseShare
                        "~/slitslider/js/jquery.slitslider.js"
                       ));
 
-            //Script Bundle
+            //Style Bundle
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/assets/bootstrap/css/bootstrap.css",
                       "~/assets/style.css",

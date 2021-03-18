@@ -29,18 +29,12 @@
                 @Html.AntiForgeryToken()
                 <input type="text" class="form-control" placeholder="Prénom" name="Prenom" required>
                 <input type="text" class="form-control" placeholder="Nom" name="Nom" required>
-                @*<input type="text" class="form-control" placeholder="Pays" name="Pays" required>*@
-                <select class="form-control" name="Pays" id="IdPays" required>
-                    <option class="form-control" disabled selected>Pays</option>
-                    <option value="1" id="1" name="Pays">1</option>
-                    <option value="2" id="1" name="Pays">2</option>
-                    <option value="3" id="1" name="Pays">3</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Pays" name="Pays" required>
                 <input type="text" class="form-control" placeholder="Téléphone" name="Telephone" required>
                 <input type="email" class="form-control" placeholder="E-mail" name="Email" required>
                 <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="Login" required>
                 <input type="password" class="form-control" placeholder="Mot de passe" name="Password" required>
-                <input type="password" class="form-control" placeholder="Confirmer mot de passe" name="Confirm Password" required>
+                <input type="password" class="form-control" placeholder="Confirmer mot de passe" name="ConfirmPassword" required>
 
                 <button type="submit" class="btn btn-success" name="Submit">Confirmer</button>
 
