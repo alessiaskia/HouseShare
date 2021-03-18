@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HouseShare.DAL.Repositories;
+using HouseShare.Models;
+using HouseShare.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +11,28 @@ namespace HouseShare.Repositories
 {
     public class DataContext
     {
+        IConcreteRepository<MembreEntity> _membreRepo;
+
+        public DataContext(string connectionString)
+        {
+            _membreRepo = new MembreRepository(connectionString);
+        }
+
+        #region Inscription
+        public bool CreateMember(MembreModel mm)
+        {
+            MembreEntity membreEntity = new MembreEntity()
+            {
+                Prenom = mm.Prenom,
+                Nom = mm.Nom,
+                Email = mm.Email,
+                Pays = mm.Pays,
+                Telephone = mm.Telephone,
+                Login = mm.Login,
+                Password = mm.Password,
+            };
+            return _membreRepo.Insert(membreEntity);
+        }
+        #endregion
     }
 }

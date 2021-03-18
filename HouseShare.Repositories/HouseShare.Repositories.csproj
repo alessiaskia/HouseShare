@@ -42,7 +42,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="MembreRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HouseShare.DAL\HouseShare.DAL.csproj">
+      <Project>{e2398087-6dc1-42ad-836e-5af26e20b3c8}</Project>
+      <Name>HouseShare.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HouseShare.Entities\HouseShare.Entities.csproj">
+      <Project>{8fa93981-6c58-4674-bcb9-056ecd2fb327}</Project>
+      <Name>HouseShare.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HouseShare.Models\HouseShare.Models.csproj">
+      <Project>{b1e53fa3-54c1-49cb-9070-e2c2a52c1f2f}</Project>
+      <Name>HouseShare.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
