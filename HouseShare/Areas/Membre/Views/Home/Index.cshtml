@@ -1,0 +1,23 @@
+﻿@model HouseShare.Models.MembreModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!-- banner -->
+<div class="inside-banner">
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+<span><a href="/Membre/Index">Zone Membre</a> / @ViewBag.Title</span>
+<!-- banner -->
+
+<h3>Bienvenu.e @Model.Prenom @Model.Nom</h3>
+<button type="submit"  class="btn btn-success" name="Submit">Modifier mes infos personnelles</button>
+
+<div class="container">
+    <p class="color1"><a href="/Membre/Index">Mes Biens</a></p>
+    <p class="color1"><a href="/Membre/Index">Ajouter un bien</a></p>
+    <p class="color1"><a href="/Membre/Index">Mes demandes d'échange</a></p>
+</div>

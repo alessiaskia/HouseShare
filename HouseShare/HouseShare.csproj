@@ -120,10 +120,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Membre\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Membre\MembreAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infra\SessionUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +192,10 @@
     <Content Include="assets\fonts\din.eot" />
     <Content Include="assets\fonts\din.ttf" />
     <Content Include="assets\fonts\din.woff" />
+    <Content Include="Areas\Membre\Views\web.config" />
+    <Content Include="Areas\Membre\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Membre\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Membre\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -219,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Membre\Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
