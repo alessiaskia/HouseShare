@@ -20,7 +20,8 @@ namespace HouseShare.Controllers
         public ActionResult Biens()
         {
             ViewBag.Biens = "active";
-            return View();
+            BiensViewModel bvm = new BiensViewModel();
+            return View(bvm);
         }
 
         public ActionResult Fiche()
@@ -32,7 +33,7 @@ namespace HouseShare.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
-            ViewBag.Home = "active";
+            ViewBag.Contact = "active";
             return View();
         }
 

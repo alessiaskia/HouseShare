@@ -11,24 +11,24 @@ namespace HouseShare.Models
     {
         private DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
-        private List<PaysModel> _listPays;
+        private List<PaysModel> _listePays;
 
         public InscriptionViewModel()
         {
-            ListPays = ctx.GetAllCountries();
+            ListePays = ctx.GetAllCountries();
         }
 
         #region Props
-        public List<PaysModel> ListPays
+        public List<PaysModel> ListePays
         {
             get
             {
-                return _listPays;
+                return _listePays;
             }
 
             set
             {
-                _listPays = value;
+                _listePays = value;
             }
         }
 

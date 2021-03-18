@@ -31,9 +31,9 @@
                     <input type="text" class="form-control" placeholder="Nom" name="Nom" required>
                     @*<input type="text" class="form-control" placeholder="Pays" name="Pays" required>*@
                     <select name="Pays" class="form-select form-control form-select-lg mb-3" aria-label="Disabled select example">
-">
+                        ">
                         <option selected disabled>Pays </option>
-                        @foreach (HouseShare.Models.PaysModel item in Model.ListPays)
+                        @foreach (HouseShare.Models.PaysModel item in Model.ListePays)
                         {
                             <option class="form-control" value="@item.IdPays">@item.Libelle</option>
                         }
@@ -44,6 +44,12 @@
                     <input type="password" class="form-control" placeholder="Mot de passe" name="Password" required>
                     <input type="password" class="form-control" placeholder="Confirmer mot de passe" name="ConfirmPassword" required>
 
+                    <div class="checkbox-inline">
+                        <label>
+                            <input type="checkbox" required />
+                            <p>J'accepte les <a href="#">conditions générales d'utilisation</a></p>
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-success" name="Submit">Confirmer</button>
 
                 </form>

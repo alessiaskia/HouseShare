@@ -13,12 +13,41 @@ namespace HouseShare.Repositories
     {
         IConcreteRepository<MembreEntity> _membreRepo;
         IConcreteRepository<PaysEntity> _paysRepo;
+        IConcreteRepository<BienEntity> _bienRepo;
 
         public DataContext(string connectionString)
         {
             _paysRepo = new PaysRepository(connectionString);
             _membreRepo = new MembreRepository(connectionString);
+            _bienRepo = new BienRepository(connectionString);
         }
+
+        #region Biens
+        public List<BienModel> GetAllBiens()
+        {
+            return _bienRepo.Get().Select(b => new BienModel()
+            {
+               IdBien = b.IdBien,
+               IdMembre = b.IdMembre,
+               NombrePerson = b.NombrePerson,
+               Pays = b.NombrePerson,
+               Titre = b.Titre,
+               DescCourte = b.DescCourte,
+               DescLong = b.DescLong,
+               Ville = b.Ville,
+               Rue = b.Rue,
+               Numero = b.Numero,
+               CodePostal = b.CodePostal,
+               Photo = b.Photo,
+               Latitude = b.Latitude,
+               Longitude = b.Longitude,
+               DateCreation = b.DateCreation,
+               IsEnabled = b.IsEnabled,
+               DisabledDate = b.DisabledDate,
+            }
+            ).ToList();
+        }
+        #endregion
 
         #region Inscription
         public bool CreateMember(MembreModel mm)
@@ -59,6 +88,7 @@ namespace HouseShare.Repositories
             }
         }
         #endregion
+
         #region Pays
 
         public List<PaysModel> GetAllCountries()

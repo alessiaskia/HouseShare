@@ -41,7 +41,7 @@
                 <!-- Nav Starts -->
                 <div class="navbar-collapse  collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/Index">Home</a></li>
                         <li><a href="#">A propos de nous</a></li>
                         <li><a href="#">Les proprietaires</a></li>
                         <li><a href="/Home/Biens">Les bien en échange</a></li>
@@ -60,13 +60,21 @@
 
         <!-- Header Starts -->
         <div class="header">
-            <a href="index.php"><img src="/images/logo.png" alt="Realestate"></a>
+            <a href="/Home/Index"><img src="/images/logo.png" alt="Realestate"></a>
 
             <ul class="pull-right">
                 <li><a href="/Account/Login">Echanger</a></li>
                 <li><a href="/Home/Biens">Visiter</a></li>
                 <li><a href="/Home/Inscription">Inscription</a></li>
-                <li><a href="/Account/Login">Se Connecter</a></li>
+                @if (HouseShare.Infra.SessionUtils.IsLogged)
+                {
+                    <li><a class="@ViewBag.Logout" href="/Account/Logout">Logout</a></li>
+                }
+                else
+                {
+                    <li><a class="@ViewBag.Login" href="/Account/Login">Login</a></li>
+                }
+                <li><a class="@ViewBag.ZoneMembre" title="Zone Membre" href="/Membre/Home/Index"></a></li>
             </ul>
         </div>
         <!-- #Header Starts -->
@@ -79,29 +87,24 @@
 
         <div class="container">
 
-
-
-          
             <div class="col-lg-3 col-sm-3">
                 <a href="#"><h4>Information</h4></a>
             </div>
 
-                <div class="col-lg-3 col-sm-3">
-                    <a href="#"><h4>Newsletter</h4></a>
+            <div class="col-lg-3 col-sm-3">
+                <a href="#"><h4>Newsletter</h4></a>
 
-                </div>
+            </div>
 
-                <div class="col-lg-3 col-sm-3">
-                    <a href="#"><h4>Suivez-nous</h4></a>
+            <div class="col-lg-3 col-sm-3">
+                <a href="#"><h4>Suivez-nous</h4></a>
 
-                </div>
+            </div>
 
-                <div class="col-lg-3 col-sm-3">
-                    <a href="/Home/Contact"><h4>Contactez-nous</h4></a>
+            <div class="col-lg-3 col-sm-3">
+                <a href="/Home/Contact"><h4>Contactez-nous</h4></a>
 
-                </div>
-         
-
+            </div>
 
         </div>
     </div>
