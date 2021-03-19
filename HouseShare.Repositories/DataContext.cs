@@ -136,6 +136,28 @@ namespace HouseShare.Repositories
             return bestBiens;
         }
 
+        // add new bien
+        public bool CreateBien(BienModel bm)
+        {
+            BienEntity bienEntity = new BienEntity()
+            {
+                Titre = bm.Titre,
+                DescCourte = bm.DescCourte,
+                DescLong = bm.DescLong,
+                NombrePerson = bm.NombrePerson,
+                Pays = bm.Pays,
+                Ville = bm.Ville,
+                Rue = bm.Rue,
+                Numero = bm.Numero,
+                CodePostal = bm.CodePostal,
+                Photo = bm.Photo,
+                AssuranceObligatoire = bm.AssuranceObligatoire,
+                IsEnabled = bm.IsEnabled,
+                Latitude = bm.Latitude,
+                Longitude = bm.Longitude,
+            };
+            return _bienRepo.Insert(bienEntity);
+        }
         #endregion
 
         #region Inscription

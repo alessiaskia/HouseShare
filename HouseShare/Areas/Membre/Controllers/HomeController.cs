@@ -73,11 +73,37 @@ namespace HouseShare.Areas.Membre.Controllers
             return View(listeBM);
         }
 
-        //ajouter un nouveau bien
+        //afficher formulaire nouveau bien
         [HttpGet]
         public ActionResult AjouterBien()
         {
             return View();
+        }
+
+        //envoyer formulaire nouveau bien
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AjouterBien(BienModel newBien)
+        {
+            if (ModelState.IsValid)
+            {
+                DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+                if (ctx.CreateBien(newBien))
+                {
+                    ViewBag.SuccessMessage = "Votre bien a été correctement enregistré";
+                    return View(SessionUtils.ConnectedUser);
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Erreur : bien non enregistré";
+                    return View(SessionUtils.ConnectedUser);
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Formulaire error : vérifiez les données insérées et réessayez";
+                return View(SessionUtils.ConnectedUser);
+            }
         }
     }
 }

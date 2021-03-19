@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace HouseShare.Models
         private int _idBien, _idMembre, _nombrePerson, _pays, _rating;
         private string _titre, _descCourte, _descLong, _ville, _rue, _numero, _codePostal, _photo, _latitude, _longitude;
         private DateTime _dateCreation;
-        private bool _isEnabled, _disabledDate;
+        private bool _isEnabled, _disabledDate, _assuranceObligatoire;
         #endregion
 
         public int IdBien
@@ -41,6 +42,7 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
         public int NombrePerson
         {
             get
@@ -54,6 +56,7 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
         public int Pays
         {
             get
@@ -66,7 +69,8 @@ namespace HouseShare.Models
                 _pays = value;
             }
         }
-
+        [Required]
+        [MaxLength(50)]
         public string Titre
         {
             get
@@ -79,7 +83,8 @@ namespace HouseShare.Models
                 _titre = value;
             }
         }
-
+        [Required]
+        [MaxLength(150)]
         public string DescCourte
         {
             get
@@ -93,6 +98,7 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
         public string DescLong
         {
             get
@@ -106,6 +112,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Ville
         {
             get
@@ -119,6 +127,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Rue
         {
             get
@@ -132,6 +142,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(5)]
         public string Numero
         {
             get
@@ -145,6 +157,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string CodePostal
         {
             get
@@ -158,6 +172,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Photo
         {
             get
@@ -171,6 +187,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Latitude
         {
             get
@@ -184,6 +202,8 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
+        [MaxLength(50)]
         public string Longitude
         {
             get
@@ -210,6 +230,7 @@ namespace HouseShare.Models
             }
         }
 
+        [Required]
         public bool IsEnabled
         {
             get
@@ -246,6 +267,20 @@ namespace HouseShare.Models
             set
             {
                 _rating = value;
+            }
+        }
+
+        [Required]
+        public bool AssuranceObligatoire
+        {
+            get
+            {
+                return _assuranceObligatoire;
+            }
+
+            set
+            {
+                _assuranceObligatoire = value;
             }
         }
     }

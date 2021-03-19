@@ -12,7 +12,7 @@ namespace HouseShare.Entities
         private int _idBien, _idMembre, _nombrePerson, _pays;
         private string _titre, _descCourte, _descLong, _ville, _rue, _numero, _codePostal, _photo, _latitude, _longitude;
         private DateTime _dateCreation;
-        private bool _isEnabled, _disabledDate; 
+        private bool _isEnabled, _disabledDate, _assuranceObligatoire; 
         #endregion
 
         public int IdBien
@@ -233,6 +233,19 @@ namespace HouseShare.Entities
             set
             {
                 _idMembre = value;
+            }
+        }
+
+        public bool AssuranceObligatoire
+        {
+            get
+            {
+                return _assuranceObligatoire;
+            }
+
+            set
+            {
+                _assuranceObligatoire = value;
             }
         }
     }
