@@ -131,6 +131,7 @@
     <Compile Include="Models\BiensViewModel.cs" />
     <Compile Include="Models\InscriptionViewModel.cs" />
     <Compile Include="Models\LoginRegisterModel.cs" />
+    <Compile Include="Models\MembreViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,7 @@ namespace HouseShare.Repositories
                IdBien = b.IdBien,
                IdMembre = b.IdMembre,
                NombrePerson = b.NombrePerson,
-               Pays = b.NombrePerson,
+               Pays = b.Pays,
                Titre = b.Titre,
                DescCourte = b.DescCourte,
                DescLong = b.DescLong,
@@ -99,6 +99,40 @@ namespace HouseShare.Repositories
                 Libelle = p.Libelle
             }
             ).ToList();
+        }
+        #endregion
+
+        #region Member Info
+        //get info to show
+        public List<MembreModel> GetMembres()
+        {
+            return _membreRepo.Get().Select(m => new MembreModel()
+            {
+                IdMembre = m.IdMembre,
+                Prenom = m.Prenom,
+                Nom = m.Nom,
+                Email = m.Email,
+                Telephone = m.Telephone,
+                Login = m.Login,
+                Password = m.Password,
+                Pays = m.Pays
+            }
+            ).ToList();
+        }
+
+        //update info
+        public bool UpdateMemberInfo(MembreModel mm)
+        {
+            MembreEntity membreEntity = new MembreEntity()
+            {
+                Prenom = mm.Prenom,
+                Nom = mm.Nom,
+                Email = mm.Email,
+                Pays = mm.Pays,
+                Telephone = mm.Telephone,
+                Login = mm.Login,
+            };
+            return _membreRepo.Update(membreEntity);
         }
         #endregion
     }

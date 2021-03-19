@@ -115,7 +115,7 @@ namespace HouseShare.Models
             }
         }
 
-        [Required]
+        
         [MaxLength(256)]
         public string Password
         {
@@ -130,7 +130,7 @@ namespace HouseShare.Models
             }
         }
 
-        [Required]
+        
         [MaxLength(50)]
         [Compare("Password", ErrorMessage = "Les mots de passe ne correspondent pas")]
         public string ConfirmPassword
