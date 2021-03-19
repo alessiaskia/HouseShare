@@ -135,6 +135,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Membre\Views\Home\AjouterBien.cshtml" />
     <Content Include="assets\bootstrap\css\bootstrap.css" />
     <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\bootstrap\js\bootstrap.js" />

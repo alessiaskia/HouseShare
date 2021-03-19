@@ -74,5 +74,10 @@ namespace HouseShare.Areas.Membre.Controllers
         }
 
         //ajouter un nouveau bien
+        [HttpGet]
+        public ActionResult AjouterBien()
+        {
+            return View();
+        }
     }
 }
