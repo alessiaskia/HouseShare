@@ -47,6 +47,47 @@ namespace HouseShare.Repositories
             }
             ).ToList();
         }
+
+        //show all member's "biens"
+        public List<BienModel> GetBiensOfMember(MembreModel mm)
+        {
+            List<BienModel> bmList = new List<BienModel>();
+            List<BienEntity> membersBiens = ((BienRepository)_bienRepo).GetBiensFromMembre(mm.IdMembre);
+
+            foreach (BienEntity item in membersBiens)
+            {
+                BienModel unBien = new BienModel();
+                unBien.Titre = item.Titre;
+                unBien.DescCourte = item.DescCourte;
+                unBien.DateCreation = item.DateCreation;
+                bmList.Add(unBien);
+            }
+            return bmList;
+
+            //return ((BienRepository)_bienRepo).GetBiensFromMembre(idMembre)
+            //    .Select(
+            //    b => new BienModel()
+            //    {
+            //        IdBien = b.IdBien,
+            //        IdMembre = b.IdMembre,
+            //        NombrePerson = b.NombrePerson,
+            //        Pays = b.Pays,
+            //        Titre = b.Titre,
+            //        DescCourte = b.DescCourte,
+            //        DescLong = b.DescLong,
+            //        Ville = b.Ville,
+            //        Rue = b.Rue,
+            //        Numero = b.Numero,
+            //        CodePostal = b.CodePostal,
+            //        Photo = b.Photo,
+            //        Latitude = b.Latitude,
+            //        Longitude = b.Longitude,
+            //        DateCreation = b.DateCreation,
+            //        IsEnabled = b.IsEnabled,
+            //        DisabledDate = b.DisabledDate,
+            //    }
+            //    );
+        }
         #endregion
 
         #region Inscription
@@ -134,6 +175,9 @@ namespace HouseShare.Repositories
             };
             return _membreRepo.Update(membreEntity);
         }
+
+
+
         #endregion
     }
 }

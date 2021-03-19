@@ -39,10 +39,10 @@ namespace HouseShare.Areas.Membre.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Profil(MembreModel form)
         {
-            
+
             form.IdMembre = SessionUtils.ConnectedUser.IdMembre;
 
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
                 if (ctx.UpdateMemberInfo(form))
@@ -62,5 +62,17 @@ namespace HouseShare.Areas.Membre.Controllers
                 return View(SessionUtils.ConnectedUser);
             }
         }
+
+        //afficher biens du membre
+
+        public ActionResult MesBiens(MembreModel user)
+        {
+            DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
+            user.IdMembre = SessionUtils.ConnectedUser.IdMembre;
+            List<BienModel> listeBM = ctx.GetBiensOfMember(user);
+            return View(listeBM);
+        }
+
+        //ajouter un nouveau bien
     }
 }

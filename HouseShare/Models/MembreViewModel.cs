@@ -12,6 +12,7 @@ namespace HouseShare.Models
         private DataContext ctx = new DataContext(ConfigurationManager.ConnectionStrings["Cnstr"].ConnectionString);
 
         private List<MembreModel> _listeMembres;
+        
         public MembreViewModel()
         {
             ListeMembres = ctx.GetMembres();

@@ -13,6 +13,7 @@ namespace HouseShare.Models
 
         private List<BienModel> _listeBiens;
         private List<PaysModel> _listeDePays;
+        private List<BienModel> _listeBiensMembre;
 
         public BiensViewModel()
         {
@@ -42,6 +43,19 @@ namespace HouseShare.Models
             set
             {
                 _listeDePays = value;
+            }
+        }
+
+        public List<BienModel> ListeBiensMembre
+        {
+            get
+            {
+                return _listeBiensMembre;
+            }
+
+            set
+            {
+                _listeBiensMembre = value;
             }
         }
     }

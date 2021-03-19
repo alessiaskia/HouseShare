@@ -22,6 +22,12 @@ namespace HouseShare.Repositories
             return base.Get(requete);
         }
 
+        public List<BienEntity> GetBiensFromMembre(int idMembre)
+        {
+            string requete = $"exec [dbo].[sp_RecupBienMembre]" + idMembre;
+            return base.Get(requete);
+        }
+
         public BienEntity GetOne(int PK)
         {
             throw new NotImplementedException();

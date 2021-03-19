@@ -202,6 +202,7 @@
     <Content Include="Areas\Membre\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Membre\Views\Home\Index.cshtml" />
     <Content Include="Areas\Membre\Views\Home\Profil.cshtml" />
+    <Content Include="Areas\Membre\Views\Home\MesBiens.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
