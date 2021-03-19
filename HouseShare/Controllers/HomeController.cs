@@ -14,7 +14,8 @@ namespace HouseShare.Controllers
         public ActionResult Index()
         {
             ViewBag.Home = "active";
-            return View();
+            BiensViewModel bvm = new BiensViewModel();
+            return View(bvm);
         }
 
         public ActionResult Biens()

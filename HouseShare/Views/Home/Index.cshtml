@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HouseShare.Models.BiensViewModel
+
+@{
     ViewBag.Title = "Home";
 }
 
@@ -8,66 +10,41 @@
     <div id="slider" class="sl-slider-wrapper">
 
         <div class="sl-slider">
+            @foreach (HouseShare.Models.BienModel item in Model.ListeBiens)
+            {
+                <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img" style="background-image: url('/images/properties/@item.Photo');"></div>
+                        <h2><a href="#">@item.Titre</a></h2>
+                        <blockquote>
+                            @foreach (HouseShare.Models.PaysModel element in Model.ListeDePays)
+                            {
+                                if (element.IdPays == item.Pays)
+                                {
+                                    <p class="location"><span class="glyphicon glyphicon-map-marker"></span>@element.Libelle</p>
+                                }
 
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-1"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
+                            }
+                            <p>@item.DescCourte</p>
+                            <h3><a href="/Account/Login">Echangez-moi</a></h3>
+                        </blockquote>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-2"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
+            @*<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                    <div class="sl-slide-inner">
+                        <div class="bg-img bg-img-2"></div>
+                        <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
+                        <blockquote>
+                            <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
+                            <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
+                            <cite>$ 20,000,000</cite>
+                        </blockquote>
+                    </div>
+                </div>*@
 
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-3"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
 
-            <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-4"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
-                <div class="sl-slide-inner">
-                    <div class="bg-img bg-img-5"></div>
-                    <h2><a href="#">2 Bed Rooms and 1 Dinning Room Aparment on Sale</a></h2>
-                    <blockquote>
-                        <p class="location"><span class="glyphicon glyphicon-map-marker"></span> 1890 Syndey, Australia</p>
-                        <p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p>
-                        <cite>$ 20,000,000</cite>
-                    </blockquote>
-                </div>
-            </div>
         </div><!-- /sl-slider -->
 
 
@@ -126,9 +103,9 @@
 
                 </div>
                 @*<div class="col-lg-5 col-lg-offset-1 col-sm-6 ">
-                    <p>Join now and get updated with all the properties deals.</p>
-                    <button class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button>
-                </div>*@
+                        <p>Join now and get updated with all the properties deals.</p>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#loginpop">Login</button>
+                    </div>*@
             </div>
         </div>
     </div>
