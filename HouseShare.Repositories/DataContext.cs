@@ -14,12 +14,14 @@ namespace HouseShare.Repositories
         IConcreteRepository<MembreEntity> _membreRepo;
         IConcreteRepository<PaysEntity> _paysRepo;
         IConcreteRepository<BienEntity> _bienRepo;
+        IConcreteRepository<AvisEntity> _avisRepo;
 
         public DataContext(string connectionString)
         {
             _paysRepo = new PaysRepository(connectionString);
             _membreRepo = new MembreRepository(connectionString);
             _bienRepo = new BienRepository(connectionString);
+            _avisRepo = new AvisRepository(connectionString);
         }
 
         #region Biens
@@ -106,6 +108,34 @@ namespace HouseShare.Repositories
             }
             return lastAddedList;
         }
+
+        //show best rated (rating > 6)
+        public List<BienModel> GetBestRated()
+        {
+            List<BienEntity> listBiens = _bienRepo.Get();
+
+            List<BienModel> bestBiens = new List<BienModel>();
+            foreach (BienEntity item in listBiens)
+            {
+                BienModel b = new BienModel
+                {
+                    Titre = item.Titre,
+                    Photo = item.Photo,
+                };
+
+                bestBiens.Add(b);
+                List<AvisEntity> goodRatings = ((AvisRepository)_avisRepo).BestRated();
+                int note = 0;
+                foreach (AvisEntity element in goodRatings)
+                {
+                    note = element.Note;
+                }
+                b.Rating = note;
+            }
+
+            return bestBiens;
+        }
+
         #endregion
 
         #region Inscription

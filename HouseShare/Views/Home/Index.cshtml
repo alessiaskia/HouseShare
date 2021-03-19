@@ -217,7 +217,7 @@
                 <p>Nous sommes les WAD2020 :)</p>
             </div>
             <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
-                <h3>Recommended Properties</h3>
+                <h3>TOP RATED</h3>
                 <div id="myCarousel" class="carousel slide">
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -227,52 +227,33 @@
                     </ol>
                     <!-- Carousel items -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="row">
-                                <div class="col-lg-4"><img src="images/properties/1.jpg" class="img-responsive" alt="properties" /></div>
-                                <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-                                    <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                        @foreach (HouseShare.Models.BienModel item in Model.BestRatedBiens)
+                        {
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-lg-4"><img src="/images/properties/@item.Photo" class="img-responsive" alt="properties" /></div>
+                                    <div class="col-lg-8">
+                                        <h5><a href="/Home/Fiche">@item.Titre</a></h5>
+                                        <p class="price">@item.Rating</p>
+                                        <a href="/Home/Fiche" class="more">Voir Plus</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-4"><img src="images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
-                                <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-                                    <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                        }
+                        @*<div class="item">
+                                <div class="row">
+                                    <div class="col-lg-4"><img src="images/properties/2.jpg" class="img-responsive" alt="properties" /></div>
+                                    <div class="col-lg-8">
+                                        <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                        <p class="price">$300,000</p>
+                                        <a href="property-detail.php" class="more">More Detail</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-4"><img src="images/properties/3.jpg" class="img-responsive" alt="properties" /></div>
-                                <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-                                    <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-lg-4"><img src="images/properties/4.jpg" class="img-responsive" alt="properties" /></div>
-                                <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
-                                    <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
-                                </div>
-                            </div>
-                        </div>
+                            </div>*@
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ namespace HouseShare.Models
     public class BienModel
     {
         #region Fields
-        private int _idBien, _idMembre, _nombrePerson, _pays;
+        private int _idBien, _idMembre, _nombrePerson, _pays, _rating;
         private string _titre, _descCourte, _descLong, _ville, _rue, _numero, _codePostal, _photo, _latitude, _longitude;
         private DateTime _dateCreation;
         private bool _isEnabled, _disabledDate;
@@ -235,6 +235,18 @@ namespace HouseShare.Models
                 _disabledDate = value;
             }
         }
-        
+
+        public int Rating
+        {
+            get
+            {
+                return _rating;
+            }
+
+            set
+            {
+                _rating = value;
+            }
+        }
     }
 }

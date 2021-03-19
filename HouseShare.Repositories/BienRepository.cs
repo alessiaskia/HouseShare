@@ -34,6 +34,7 @@ namespace HouseShare.Repositories
             return base.Get(requete);
         }
 
+
         public BienEntity GetOne(int PK)
         {
             throw new NotImplementedException();
