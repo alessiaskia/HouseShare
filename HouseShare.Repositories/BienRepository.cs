@@ -28,6 +28,12 @@ namespace HouseShare.Repositories
             return base.Get(requete);
         }
 
+        public List<BienEntity> LastFiveAdded()
+        {
+            string requete = "Select * from [dbo].[Vue_CinqDernierBiens]";
+            return base.Get(requete);
+        }
+
         public BienEntity GetOne(int PK)
         {
             throw new NotImplementedException();

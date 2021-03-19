@@ -27,23 +27,23 @@ namespace HouseShare.Repositories
         {
             return _bienRepo.Get().Select(b => new BienModel()
             {
-               IdBien = b.IdBien,
-               IdMembre = b.IdMembre,
-               NombrePerson = b.NombrePerson,
-               Pays = b.Pays,
-               Titre = b.Titre,
-               DescCourte = b.DescCourte,
-               DescLong = b.DescLong,
-               Ville = b.Ville,
-               Rue = b.Rue,
-               Numero = b.Numero,
-               CodePostal = b.CodePostal,
-               Photo = b.Photo,
-               Latitude = b.Latitude,
-               Longitude = b.Longitude,
-               DateCreation = b.DateCreation,
-               IsEnabled = b.IsEnabled,
-               DisabledDate = b.DisabledDate,
+                IdBien = b.IdBien,
+                IdMembre = b.IdMembre,
+                NombrePerson = b.NombrePerson,
+                Pays = b.Pays,
+                Titre = b.Titre,
+                DescCourte = b.DescCourte,
+                DescLong = b.DescLong,
+                Ville = b.Ville,
+                Rue = b.Rue,
+                Numero = b.Numero,
+                CodePostal = b.CodePostal,
+                Photo = b.Photo,
+                Latitude = b.Latitude,
+                Longitude = b.Longitude,
+                DateCreation = b.DateCreation,
+                IsEnabled = b.IsEnabled,
+                DisabledDate = b.DisabledDate,
             }
             ).ToList();
         }
@@ -87,6 +87,24 @@ namespace HouseShare.Repositories
             //        DisabledDate = b.DisabledDate,
             //    }
             //    );
+        }
+
+        //show last 5 added
+        public List<BienModel> GetLastFiveBiens()
+        {
+            List<BienModel> lastAddedList = new List<BienModel>();
+            List<BienEntity> membersBiens = ((BienRepository)_bienRepo).LastFiveAdded();
+
+            foreach (BienEntity item in membersBiens)
+            {
+                BienModel recentBien = new BienModel();
+                recentBien.Titre = item.Titre;
+                recentBien.Photo = item.Photo;
+                recentBien.DescCourte = item.DescCourte;
+                recentBien.DateCreation = item.DateCreation;
+                lastAddedList.Add(recentBien);
+            }
+            return lastAddedList;
         }
         #endregion
 

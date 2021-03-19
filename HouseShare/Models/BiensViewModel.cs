@@ -14,11 +14,13 @@ namespace HouseShare.Models
         private List<BienModel> _listeBiens;
         private List<PaysModel> _listeDePays;
         private List<BienModel> _listeBiensMembre;
+        private List<BienModel> _lastFiveAdded;
 
         public BiensViewModel()
         {
             ListeBiens = ctx.GetAllBiens();
             ListeDePays = ctx.GetAllCountries();
+            LastFiveAdded = ctx.GetLastFiveBiens();
         }
         public List<BienModel> ListeBiens
         {
@@ -56,6 +58,19 @@ namespace HouseShare.Models
             set
             {
                 _listeBiensMembre = value;
+            }
+        }
+
+        public List<BienModel> LastFiveAdded
+        {
+            get
+            {
+                return _lastFiveAdded;
+            }
+
+            set
+            {
+                _lastFiveAdded = value;
             }
         }
     }
