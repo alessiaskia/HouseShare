@@ -1,9 +1,11 @@
-﻿CREATE VIEW [dbo].[Vue_BiensParPays]
+﻿CREATE VIEW dbo.V_GetBiensWithCountry
 AS
-SELECT     TOP (100) PERCENT idBien, titre, DescCourte, DescLong, NombrePerson, Pays, Ville, Rue, Numero, CodePostal, Photo, AssuranceObligatoire, isEnabled, DisabledDate, Latitude, Longitude, 
-                      idMembre, DateCreation
-FROM         dbo.BienEchange
-ORDER BY Pays
+SELECT dbo.BienEchange.*, dbo.Pays.Libelle
+FROM   dbo.BienEchange INNER JOIN
+             dbo.Pays ON dbo.BienEchange.Pays = dbo.Pays.idPays
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_GetBiensWithCountry';
+
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -79,10 +81,20 @@ Begin DesignProperties =
       Begin Tables = 
          Begin Table = "BienEchange"
             Begin Extent = 
-               Top = 6
-               Left = 248
-               Bottom = 247
-               Right = 439
+               Top = 9
+               Left = 57
+               Bottom = 206
+               Right = 330
+            End
+            DisplayFlags = 280
+            TopColumn = 4
+         End
+         Begin Table = "Pays"
+            Begin Extent = 
+               Top = 9
+               Left = 387
+               Bottom = 152
+               Right = 609
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -113,9 +125,5 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vue_BiensParPays';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vue_BiensParPays';
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'V_GetBiensWithCountry';
 

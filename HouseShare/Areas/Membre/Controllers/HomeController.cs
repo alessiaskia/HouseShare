@@ -23,5 +23,11 @@ namespace HouseShare.Areas.Membre.Controllers
 
             return RedirectToAction("Index", "Home", new { area = "" });
         }
+
+        //afficher info du membre
+        public ActionResult Profil()
+        {
+            return View();
+        }
     }
 }

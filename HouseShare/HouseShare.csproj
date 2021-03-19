@@ -200,6 +200,7 @@
     <Content Include="Areas\Membre\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Membre\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Membre\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Membre\Views\Home\Profil.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -227,6 +228,7 @@
     <Content Include="Views\Home\Fiche.cshtml" />
     <Content Include="Views\Home\Inscription.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
